@@ -8,8 +8,7 @@
 <body>
     <div>
         <h1>Iniciar Sesión</h1>
-        <form action="" method="POST"
-        class="formulario" name="login">
+        <form action="" method="POST" class="formulario" name="login">
         
         <div>
             <input type="text" name="usuario" class="usuario" placeholder="Usuario">
@@ -17,7 +16,7 @@
         <div>
             <input type="password" name="password" class="password_btn" placeholder="Contraseña">
             <br><br>
-            <button type="button" onclick="login.submit()">Iniciar Sesión</button>
+            <button type="submit">Iniciar Sesión</button>
         </div>
         
         <!--Mensaje de error-->

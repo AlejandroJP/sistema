@@ -8,8 +8,7 @@
 <body>
     <div>
         <h1>Regístrate</h1>
-        <form action="" method="POST"
-        class="formulario" name="login">
+        <form action="" method="POST" class="formulario" name="login">
         
         <div class="form-group">
             <input type="text" name="usuario" placeholder="Usuario">
@@ -21,7 +20,7 @@
         <div>
             <input type="password" name="confirmPassword" class="password" placeholder="Confirmar contraseña">
             <br><br>
-            <button type="button" onclick="login.submit()">Registrarse</button>
+            <button type="submit"">Registrarse</button>
         </div>
         
         <!--Mensaje de error-->
