@@ -1,4 +1,6 @@
-<?php session_start();
+<?php 
+
+session_start();
 
 if (isset($_SESSION['usuario'])) {
     header('location: index.php');
@@ -10,29 +12,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $confirmPassword = $_POST['confirmPassword'];
     
     $errores = '';
+
+    $passhash = password_hash($password, PASSWORD_BCRYPT);
+    $confirmhash = password_hash($confirmPassword, PASSWORD_BCRYPT);
     
-    if (empty($usuario) or empty($password) or empty($confirmPassword)) {
-        $errores .= '<li>Rellena todos los datos</li>';
+    if ($password != $confirmPassword) {
+        $errores .= '<li>Las contraseñas no son iguales</li>';
     } else {
-        try {
-            $conexion = new PDO('mysql: host = localhost; dbname = login', 'root','');
-        } catch (PDOException $e) {
-            echo "Error: " . $e->getMessage();
-        }
-        
-        $statement = $conexion->prepare('SELECT * FROM usuarios WHERE usuario = :usuario LIMIT 1');
-        $statement->execute(array(':usuario' => $usuario));
-        $resultado = $statement->fetch();
-        
-        if ($resultado != false) {
-            $errores .= '<li>El nombre de usuario ya existe</li>';
-        }
-        
-        $password = hash('sha512', $password);
-        $confirmPassword = hash('sha512', $confirmPassword);
-        
-        if ($password != $confirmPassword) {
-            $errores .= '<li>Las contraseñas no son iguales</li>';
+        if (empty($usuario) or empty($password) or empty($confirmPassword)) {
+            $errores .= '<li>Rellena todos los datos</li>';
+        } else {
+
+            require_once 'connect.php';
+
+            $statement = $conexion->prepare('SELECT * FROM usuario WHERE usuario = :usuario LIMIT 1');
+            $statement->execute(array(':usuario' => $usuario));
+            $resultado = $statement->fetch();
+            
+            if ($resultado != false) {
+                $errores .= '<li>El nombre de usuario ya existe</li>';
+            } else {
+
+                require_once 'connect.php';
+
+                $insert = $conexion->prepare('INSERT INFO usuario (usuario, password) VALUES (:usuario, :password)');
+                $insert->bindParam(':usuario', $usuario);
+                $insert->bindParam(':password', $passhash);
+
+                if ($insert->execute()) {
+                    $errores = '<li>Usuario registrado</li>';
+                } else {
+                    $errores = '<li>Error desconocido</li>';
+                }
+            }
         }
     }
 }

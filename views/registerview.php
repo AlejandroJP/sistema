@@ -20,7 +20,7 @@
         <div>
             <input type="password" name="confirmPassword" class="password" placeholder="Confirmar contraseña">
             <br><br>
-            <button type="submit"">Registrarse</button>
+            <button type="submit">Registrarse</button>
         </div>
         
         <!--Mensaje de error-->
