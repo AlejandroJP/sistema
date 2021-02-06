@@ -1,0 +1,1 @@
+Sistema de registro e inicio de sesión para mostrar contenido
