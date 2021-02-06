@@ -1,6 +1,6 @@
 <?php
-
 session_start();
+require_once 'connect.php';
 
 if (isset($_SESSION['usuario'])) {
     header('location: index.php');
@@ -9,26 +9,29 @@ if (isset($_SESSION['usuario'])) {
 $errores = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $usuario = filter_var(strtolower($_POST['usuario']), FILTER_SANITIZE_STRING);
+    $usuario = $_POST['usuario'];
     $password = $_POST['password'];
-    $password = hash('sha512', $password);
 
-    try {
-        $conexion = new PDO('mysql: host = localhost; dbname = login', 'root', '');
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
-    }
+    $statement = $conexion->prepare('SELECT * FROM usuarios WHERE usuario = :usuario');
+    $statement->bindParam('usuario', $usuario);
+    $statement->execute();
 
-    $statement = $conexion->prepare('SELECT * FROM usuario WHERE usuario = :usuario AND pass = 
-        :password');
-    
     $resultado = $statement->fetch();
 
-    if ($resultado !== false) {
-        $_SESSION['usuario'] = $usuario;
-        header('location: index.php');
+    if (!$resultado) {
+        $errores = '<li>Datos incorrectos</li>';
     } else {
-        $errores .= '<li>Datos incorrectos</li>';
+        if (password_verify($password, $resultado['pass'])) {
+            session_start();
+            $_SESSION['loggedin'] = true;
+            $_SESSION['user_id'] = $resultado['id'];
+            $_SESSION['usuario'] = $usuario;                            
+            
+            // Redirect user to welcome page
+            header("location: content.php");
+        } else {
+            $errores = '<li>Datos incorrectos</li>';
+        }
     }
 }
 
