@@ -17,35 +17,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $confirmhash = password_hash($confirmPassword, PASSWORD_BCRYPT);
     
     if ($password != $confirmPassword) {
-        
-        $errores .= '<li>Las contraseñas no son iguales</li>';
-        
+        $errores .= '<li class="error">Las contraseñas no son iguales</li>';
     } else {
-        
         if (empty($usuario) or empty($password) or empty($confirmPassword)) {
-            $errores .= '<li>Rellena todos los datos</li>';
+            $errores .= '<li class="error">Rellena todos los datos</li>';
         } else {
-            
             $statement = $conexion->prepare('SELECT * FROM usuarios WHERE usuario = :usuario LIMIT 1');
             $statement->execute(array(':usuario' => $usuario));
             $resultado = $statement->fetch();
             
             if ($resultado != false) {
-                $errores .= '<li>El nombre de usuario ya existe</li>';
+                $errores .= '<li class="error">El nombre de usuario ya existe</li>';
             } else {
-                
                 $insert = $conexion->prepare('INSERT INTO usuarios (usuario, pass) VALUES (:usuario, :password)');
                 $insert->bindParam(':usuario', $usuario);
                 $insert->bindParam(':password', $passhash);
                 
                 if ($insert->execute()) {
-                    
                     $errores = '<li>Usuario registrado</li>';
-                    
                 } else {
-                    
-                    $errores = '<li>Error desconocido</li>';
-                    
+                    $errores = '<li  class="error">Error desconocido</li>';
                 }
             }
         }

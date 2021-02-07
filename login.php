@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $resultado = $statement->fetch();
 
     if (!$resultado) {
-        $errores = '<li>Datos incorrectos</li>';
+        $errores = '<li class="error">Datos incorrectos</li>';
     } else {
         if (password_verify($password, $resultado['pass'])) {
             session_start();
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Redirect user to welcome page
             header("location: content.php");
         } else {
-            $errores = '<li>Datos incorrectos</li>';
+            $errores = '<li class="error">Datos incorrectos</li>';
         }
     }
 }
