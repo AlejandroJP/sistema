@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errores .= '<li class="error">Las contraseñas no son iguales</li>';
     } else {
         if (empty($usuario) or empty($password) or empty($confirmPassword)) {
-            $errores .= '<li class="error">Rellena todos los datos</li>';
+            $errores .= '<li class="error">Rellena todos los campos</li>';
         } else {
             $statement = $conexion->prepare('SELECT * FROM usuarios WHERE usuario = :usuario LIMIT 1');
             $statement->execute(array(':usuario' => $usuario));

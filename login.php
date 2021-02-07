@@ -18,21 +18,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $resultado = $statement->fetch();
 
-    if (!$resultado) {
-        $errores = '<li class="error">Datos incorrectos</li>';
-    } else {
-        if (password_verify($password, $resultado['pass'])) {
-            session_start();
-            $_SESSION['loggedin'] = true;
-            $_SESSION['user_id'] = $resultado['id'];
-            $_SESSION['usuario'] = $usuario;                            
-            
-            // Redirect user to welcome page
-            header("location: content.php");
+    if (empty($usuario) or empty($password)) {
+            $errores .= '<li class="error">Rellena todos los campos</li>';
         } else {
-            $errores = '<li class="error">Datos incorrectos</li>';
+            if (!$resultado) {
+                $errores = '<li class="error">Datos incorrectos</li>';
+            } else {
+                if (password_verify($password, $resultado['pass'])) {
+                    session_start();
+                    $_SESSION['loggedin'] = true;
+                    $_SESSION['user_id'] = $resultado['id'];
+                    $_SESSION['usuario'] = $usuario;                            
+                    
+                    // Redirect user to welcome page
+                    header("location: content.php");
+                } else {
+                    $errores = '<li class="error">Datos incorrectos</li>';
+                }
+            }
         }
-    }
 }
 
 require 'views/loginview.php'
