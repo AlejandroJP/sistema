@@ -7,9 +7,8 @@
     <link rel="stylesheet" href="./css/stylecontent.css">
 </head>
 <body>
-    <div>
+    <div class="contenido">
         <h1>Primera Guerra Mundial</h1>
-        
         <div>
             <p>La Primera Guerra Mundial, anteriormente llamada la Gran Guerra,
             fue una confrontación bélica centrada en Europa que empezó el 28 de 
@@ -78,6 +77,6 @@
             que dejó la Primera Guerra Mundial en el mundo no acabaron de curar.<br></p><br>
         </div>
     </div>
-    <p>¿Has aprendido suficiente hoy? Puedes <a href="close.php">cerrar sesión</a></p>
+    <p>¿Has aprendido suficiente hoy? Puedes<a href="close.php">cerrar sesión</a></p>
 </body>
 </html>
