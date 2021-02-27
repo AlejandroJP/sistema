@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+<?php include("../assets/header.php"); ?>
     <div>
         <h1>Contenido</h1>
         <a href="close.php">Cerrar sesión</a>
