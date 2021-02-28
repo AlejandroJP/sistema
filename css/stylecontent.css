@@ -19,16 +19,23 @@ html, body {
 
 .datos {
     float: right;
+    padding: 7px;
+    border: 1px solid #bbb;
     width: 190px;
     height: 100vh;
 }
 
+.datos p {
+    text-align: center;
+}
+
 .info {
-    width: 600px;
+    width: 550px;
     display: inline-block;
 }
 
 .nav {
+    border: 1px solid #bbb;
     float: left;
     width: 190px;
     height: 100vh;
@@ -45,11 +52,19 @@ h2 {
     padding: 5px;
 }
 
+img {
+    width: 100%;
+    border: 1px solid black;
+    margin-right: 7px;
+}
+
 p, a {
     text-align: justify;
     padding: 10px;
 }
 
-table {
-    float: right;
+li {
+    text-align: justify;
+    font-size: 0.9rem;
+    list-style: none;
 }

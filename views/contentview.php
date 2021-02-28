@@ -8,12 +8,28 @@
 </head>
 <body>
     <div>
+        <header>
+            <p>¿Has aprendido suficiente hoy? Puedes<a href="close.php">cerrar sesión</a>y regresar en otro momento.</p>
+        </header>
+    </div>
+    <div>
         <div class="contenido">
             <div class="nav">
                 <nav>
+                    <br>
+                    <p><b>Navegación</b></p>
                     <ul>
                         <li>
-                            <p>hola</p>
+                            <a href="#ww1">La Gran Guerra</a>
+                        </li>
+                        <li>
+                            <a href="#causas">Causas</a>
+                        </li>
+                        <li>
+                            <a href="#expansion">Expansión</a>
+                        </li>
+                        <li>
+                            <a href="#nm">¿Nunca más?</a>
                         </li>
                     </ul>
                 </nav>
@@ -22,13 +38,18 @@
                 <table>
                     <tbody>
                         <tr>
-                            <p>haha</p>
+                            <br>
+                            <p><b>Soldados en trinchera alemana</b></p>
+                            <img src="https://static.nationalgeographic.es/files/styles/image_3200/public/01-wwi.webp?w=1024&h=576" alt="wwi">
+                            <br>
+                            <p><b>Archiduque Francisco Fernando</b></p>
+                            <img src="https://static.nationalgeographic.es/files/styles/image_3200/public/02-wwi.webp?w=1024&h=1428" alt="Archiduque Francisco Fernando">
                         </tr>
                     </tbody>
                 </table>
             </div>
             <div class="info">
-                <h1>Primera Guerra Mundial</h1>
+                <h1 id="ww1">Primera Guerra Mundial</h1>
                 <p>La Primera Guerra Mundial, anteriormente llamada la Gran Guerra,
                 fue una confrontación bélica centrada en Europa que empezó el 28 de 
                 julio de 1914 y finalizó el 11 de noviembre de 1918. Recibió el 
@@ -47,7 +68,7 @@
                 letales en la historia mundial... Pero ¿cuales fueron las causas de 
                 este conflicto?</p><br>
 
-                <h2>Las causas de la guerra</h2>
+                <h2 id="causas">Las causas de la guerra</h2>
                 <p>La Primera Guerra Mundial tuvo diversas causas, pero sus raíces se 
                 encuentran en una compleja red de alianzas entre las potencias europeas. 
                 En esencia, fue la desconfianza entre la informal Triple Entente y 
@@ -65,7 +86,7 @@
                 Serbia un mes después, sus aliados intervinieron y el continente entró en 
                 guerra.<br></p><br>
 
-                <h2>La expansión de la guerra</h2>
+                <h2 id="expansion">La expansión de la guerra</h2>
                 <p>El conflicto pronto se expandió al resto del mundo y afectó a las colonias 
                 y a los países aliados de África, Asia, Oriente Medio y Australia. En 1917, 
                 los Estados Unidos entraron en la guerra tras un largo periodo de no intervención. 
@@ -86,7 +107,7 @@
                 otros países. Gran parte de Europa estaba en ruinas. La «neurosis de guerra» y las 
                 secuelas de la intoxicación por gas se cobrarían miles de vidas más.<br></p><br>
 
-                <h2>¿Nunca más?</h2>
+                <h2 id="nm">¿Nunca más?</h2>
                 <p>Aunque el mundo se comprometió a no permitir que ocurriera otra guerra como esa, 
                 se sembraron las semillas del siguiente conflicto con el Tratado de Versalles, que 
                 fue humillante y punitivo para los alemanes y contribuyó a preparar el terreno para 
@@ -96,7 +117,6 @@
                 que dejó la Primera Guerra Mundial en el mundo no acabaron de curar.<br></p><br>
             </div>
             <div>
-                <p>¿Has aprendido suficiente hoy? Puedes<a href="close.php">cerrar sesión</a></p>
             </div>
         </div>
     </div>
