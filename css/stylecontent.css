@@ -1,29 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swa');
 
+html, body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    color: #222;
+    font-family: 'Ubuntu', 'Open Sans', Arial, sans-serif;
+}
+
 .contenido{
-    width: 500px;
+    text-align: center;
+    width: 98%;
     margin: 10px;
     margin-top: 10px;
-    border-width: 2px;
-    border-color: black;
-    border-style: solid;
+    float: right;
+}
+
+.datos {
+    float: right;
+    width: 190px;
+    height: 100vh;
+}
+
+.info {
+    width: 600px;
+    display: inline-block;
+}
+
+.nav {
+    float: left;
+    width: 190px;
+    height: 100vh;
 }
 
 h1 {
-    font-family: 'Ubuntu', 'Open Sans', Arial, sans-serif;
     font-size: 2.5rem;
     padding: 5px;
 }
 
 h2 {
-    font-family: 'Ubuntu', 'Open Sans', Arial, sans-serif;
+    text-align: justify;
     font-size: 2rem;
     padding: 5px;
 }
 
 p, a {
-    font-family: 'Ubuntu', 'Open Sans', Arial, sans-serif;
     text-align: justify;
     padding: 10px;
+}
+
+table {
+    float: right;
 }
