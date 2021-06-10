@@ -12,7 +12,7 @@
     <nav>
         <ul>
             <li>
-                <a href="views/ww1.php">Rotación y Treaslación</a>
+                <a href="views/ww1.php">Rotación y Traslación</a>
             </li>
         </ul>
     </nav>
