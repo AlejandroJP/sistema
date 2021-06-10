@@ -8,11 +8,11 @@
 </head>
 <body>
     <h1>¡Bienvenido!</h1>
-    <p>Aquí puedes aprender sobre distintos módulos de Historia Universal</p>
+    <p>Aquí puedes aprender sobre distintos módulos de Ciencias de la Tierra</p>
     <nav>
         <ul>
             <li>
-                <a href="views/ww1.php">La Gran Guerra</a>
+                <a href="views/ww1.php">Rotación y Treaslación</a>
             </li>
         </ul>
     </nav>
